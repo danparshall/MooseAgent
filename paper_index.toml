@@ -1,0 +1,6 @@
+# Per-repo config for the paper-index tool (see the paper-index skill's SKILL.md).
+# The file and every key are optional; uncomment what this collection needs.
+[paths]
+# extra_pdf_dirs = ["blogs"]                # refs also resolve under these roots
+# exempt_dirs = ["papers/org_docs"]         # PDFs catalogued elsewhere
+# pending_index = "papers/pending_index.txt"  # the default

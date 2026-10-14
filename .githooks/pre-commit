@@ -1,0 +1,17 @@
+#!/bin/sh
+# Check-only: refuses a commit whose staged PAPER_SUMMARIES.md is out of step
+# with the generated index. Never rewrites anything. Fix: run
+#   python3 $PAPER_INDEX_DIR/paper_index.py index .
+# and re-stage. Locator: $PAPER_INDEX_DIR, the web template clone, then ~/.claude/skills.
+case "$(git diff --cached --name-only)" in
+  *PAPER_SUMMARIES.md*|*PAPER_INDEX.md*|*PAPER_RELATED.md*|*.pdf*|*paper_index.toml*) ;;
+  *) exit 0 ;;
+esac
+DIR="${PAPER_INDEX_DIR:-}"
+[ -z "$DIR" ] && [ -d /home/claude/.claude_researcher_template/template/skills/paper-index ] && DIR=/home/claude/.claude_researcher_template/template/skills/paper-index
+[ -z "$DIR" ] && [ -d "$HOME/.claude/skills/paper-index" ] && DIR="$HOME/.claude/skills/paper-index"
+if [ -z "$DIR" ]; then echo "pre-commit: paper-index tool not found; skipping check" >&2; exit 0; fi
+python3 "$DIR/paper_index.py" check . || { echo "pre-commit: generated index is stale — run 'python3 $DIR/paper_index.py index .' and re-stage" >&2; exit 1; }
+# The check above reads the working tree. Refuse if the generated files are
+# fresh on disk but not in the index — the commit would still carry the stale copy.
+git diff --quiet -- PAPER_SUMMARIES.md PAPER_INDEX.md PAPER_RELATED.md || { echo "pre-commit: PAPER_SUMMARIES/INDEX/RELATED have unstaged changes — stage them (the commit would carry the stale copy)" >&2; exit 1; }
