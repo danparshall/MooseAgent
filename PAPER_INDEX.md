@@ -1,7 +1,7 @@
 # Paper Index
 
 <!-- BEGIN GENERATED: counts -->
-**PAPER_SUMMARIES.md** — Summaries of 0 papers across 0 sections; 0 papers have local PDFs, 0 are reference-only, 0 are text-only extractions of blog/web sources. The [Quick Reference](#quick-reference) table below indexes 0 of these by slug, author, or focus.
+**PAPER_SUMMARIES.md** — Summaries of 1 papers across 1 sections; 1 papers have local PDFs, 0 are reference-only, 0 are text-only extractions of blog/web sources. The [Quick Reference](#quick-reference) table below indexes 1 of these by slug, author, or focus.
 <!-- END GENERATED: counts -->
 
 ## Quick Reference
@@ -11,8 +11,10 @@ Rows are one paper each. `Slug` is a stable kebab-case identifier used as the fo
 <!-- BEGIN GENERATED: quick-reference -->
 | Slug | Paper | Focus | Key Contribution | File |
 |------|-------|-------|------------------|------|
+| `mooseagent` | Zhang, Liu, Xin, Jiao (Nuclear Power Institute of China) (2025) | LLM agent for MOOSE input files | LangGraph multi-agent system (DeepSeek-R1 writes, DeepSeek-V3 elsewhere) turns natural-language specs into MOOSE input files with RAG and an execute-analyze-correct loop; 93% "success" (ran without error) over 9 cases x 5 runs, falling to 76% with the knowledge base removed. | `ZhangT_Jiao__2025--mooseagent.pdf` |
 <!-- END GENERATED: quick-reference -->
 
 <!-- BEGIN GENERATED: section-list -->
-**papers/** — 0 paper entries (0 local PDFs, 0 reference-only, 0 text-only web captures) organized into 0 topical sections in PAPER_SUMMARIES.md. The [Quick Reference](#quick-reference) table above indexes 0 of these by slug/author/focus. Sections (with entry counts):
+**papers/** — 1 paper entries (1 local PDFs, 0 reference-only, 0 text-only web captures) organized into 1 topical sections in PAPER_SUMMARIES.md. The [Quick Reference](#quick-reference) table above indexes 1 of these by slug/author/focus. Sections (with entry counts):
+  - [LLM agents for simulation codes](PAPER_SUMMARIES.md#llm-agents-for-simulation-codes) (1)
 <!-- END GENERATED: section-list -->
